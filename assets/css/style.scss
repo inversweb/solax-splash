@@ -153,7 +153,10 @@ body {
     color: var(--color-body);
     font-weight: var(--p-regular);
     position: relative;
-    overflow-x: hidden
+}
+
+.overflow-hidden{
+    overflow: hidden;
 }
 
 body::before {
@@ -5570,13 +5573,6 @@ Copyright (c) 2015 Daniel Eden
 
 .tmp-header-area {
     width: 100%;
-
-    .tmp-btn.btn-primary {
-        background: transparent;
-        color: var(--color-heading-1);
-        border: 1px solid #E4E4E4;
-        border-radius: 30px;
-    }
 }
 
 .megamenu-area {
@@ -5812,29 +5808,7 @@ Copyright (c) 2015 Daniel Eden
     }
 }
 
-.nav-area ul {
-    padding: 0;
-    margin: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 40px;
-    border: 1px solid rgba(#ffffff, $alpha: .1);
-    border-radius: 4px;
-}
 
-.nav-area ul li a {
-    padding: 0;
-    display: block;
-    transition: .3s;
-    font-weight: 600;
-    color: var(--color-heading-1);
-    line-height: 1;
-
-    &:hover {
-        color: var(--color-primary);
-    }
-}
 
 @media only screen and (max-width:1199px) {}
 @media only screen and (max-width:1199px) {
@@ -5878,7 +5852,6 @@ Copyright (c) 2015 Daniel Eden
     top: 0;
     transform: translateY(0);
     position: relative;
-    padding: 16px 0 16px;
     .container{
         max-width: 1600px;
     }
@@ -5894,7 +5867,6 @@ Copyright (c) 2015 Daniel Eden
     z-index: 999;
     border: none !important;
     max-width: 100%;
-    padding: 20px 0;
     background: var(--color-white);
 }
 
@@ -6078,7 +6050,7 @@ li.has-dropdown:hover .submenu {
 .tmp-banner-area-1 {
     text-align: center;
     height: auto;
-    padding: 220px 0 340px;
+    padding: 220px 0 270px;
     background: url(../images/banner/banner-bg.webp);
     background-size: cover;
     background-position: center;
@@ -6870,8 +6842,11 @@ li.has-dropdown:hover .submenu {
     .accordion-item {
         background: 0 0;
         border: none;
-        border-bottom: 1px solid rgba(0, 25, 30, .2);
+        border-bottom: 1px solid rgb(199 199 199 / 20%);
         padding: 25px 0;
+        &:last-child{
+            border-bottom: none;
+        }
     } 
 }
 
@@ -6906,7 +6881,9 @@ li.has-dropdown:hover .submenu {
     right: 0;
     background-size: cover
 }
-
+.pr--50{
+    padding-right: 70px;
+}
 .faq-area-bottom .accordion-item .accordion-header button[aria-expanded=true]::after {
     background-image: url(../images/icon/07.png)
 }
@@ -6914,6 +6891,24 @@ li.has-dropdown:hover .submenu {
 .faq-area-bottom .accordion-item .accordion-body {
     margin-top: 0;
     padding: 25px 0 0;
+    ul{
+        padding-left: 0;
+        list-style: none;
+        li{
+            position: relative;
+            padding-left: 20px;
+            &::after{
+                position: absolute;
+                content: '';
+                left: 0;
+                top: 7px;
+                height: 10px;
+                width: 10px;
+                border-radius: 50%;
+                background: var(--color-primary);
+            }
+        }
+    }
     p{
         &:not(:last-child){
             margin-bottom: 20px;
@@ -7333,6 +7328,8 @@ li.has-dropdown:hover .submenu {
     z-index: 1;
     .content-area{
         margin-left: 50px;
+        position: sticky;
+        top: 100px;
         .title-area{
             .title{
                 color: var(--color-white);
@@ -7781,3 +7778,4 @@ li.has-dropdown:hover .submenu {
 @import'elements/sal.scss';
 @import'elements/button';
 @import'elements/fixing';
+@import'elements/nav';

@@ -584,6 +584,9 @@
     height: 48px;
     &:hover{
         border-color: transparent !important;
+        span{
+            color: var(--color-white);
+        }
     }
     &::before {
         content: "";
@@ -602,6 +605,8 @@
         line-height: 1.2;
         animation: btnMarqueeX 2s linear infinite;
         letter-spacing: 2px;
+        color: var(--color-body);
+        transition: .3s;
         &::after{
             content: attr(data-text);
             position: absolute;
