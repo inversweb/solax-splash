@@ -34,6 +34,9 @@
             this._html = $('html')
         },
         methods: function (e) {
+            tmpJs.odoMeter();
+            tmpJs.stickyTopelements();
+            tmpJs.jarallax();
             tmpJs.stickyHeader();
             tmpJs.backToTopInit();
             tmpJs.pricingToggle();
@@ -45,6 +48,101 @@
 
         },
 
+
+        odoMeter: function () {
+          $(document).ready(function () {
+            function isInViewport(element) {
+              const rect = element.getBoundingClientRect();
+              return (
+                rect.top >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+              );
+            }
+
+            function triggerOdometer(element) {
+              const $element = $(element);
+              if (!$element.hasClass('odometer-triggered')) {
+                const countNumber = $element.attr('data-count');
+                $element.html(countNumber);
+                $element.addClass('odometer-triggered'); // Add a class to prevent re-triggering
+              }
+            }
+
+            function handleOdometer() {
+              $('.odometer').each(function () {
+                if (isInViewport(this)) {
+                  triggerOdometer(this);
+                }
+              });
+            }
+
+            // Check on page load
+            handleOdometer();
+
+            // Check on scroll
+            $(window).on('scroll', function () {
+              handleOdometer();
+            });
+          });
+        },
+        
+        stickyTopelements: function () {
+            var stickyElement = $('.inversweb-sticky-section');
+
+            stickyElement.each(function () {
+                var $this = $(this);
+
+                $(window).on("scroll", function () {
+                    var windowTop = $(window).scrollTop();     // Scroll position
+                    var windowHeight = $(window).height();     // Window height
+                    var triggerPoint = windowTop + (windowHeight * 0.2); // Top theke 20%
+
+                    var elementTop = $this.offset().top;       // Section position
+
+                    if (triggerPoint >= elementTop) {
+                        $this.addClass('zoomactive');
+                    } else {
+                        $this.removeClass('zoomactive');
+                    }
+                });
+            });
+
+
+            var masonary = $('.invers-theme-masonary');
+            masonary.each(function () {
+                $('.invers-theme-masonary').imagesLoaded(() => {
+                    $('.invers-theme-masonary').masonry({
+                        itemSelector: '.invers-masonary-item',
+                        horizontalOrder: true,
+                    });
+                })
+            })
+
+
+        },
+
+        
+        jarallax: function (e) {
+          $(document).ready(function () {
+              // Detect if device is mobile
+              function isMobileDevice() {
+                return /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+                  navigator.userAgent
+                );
+              }
+
+              // Initialize jarallax only if it's not a mobile device
+              if (!isMobileDevice()) {
+                $('.jarallax').jarallax({
+                  speed: 0.4, // scroll speed নিয়ন্ত্রণ করতে পারো (0.2–1)
+                  imgSize: 'cover',
+                  imgPosition: 'center',
+                });
+              } else {
+                console.log('Jarallax skipped on mobile devices');
+              }
+          });
+        },
 
         // sal animatioin activation
         salActive: function () {
