@@ -15,6 +15,9 @@
             font-weight: 700;
             line-height: 30%;
             margin-bottom: 40px;
+            span{
+                color: var(--color-primary);
+            }
         }
         h2{
             color: #141417;
@@ -31,12 +34,12 @@
         .one{
             position: absolute;
             top: -37px;
-            right: 86px;
+            right: 60px;
         }
         .two{
             position: absolute;
-            right: -42px;
-            top: -42px;
+            right: -64px;
+            top: -25px;
         }
         .small{
             position: absolute;
@@ -45,7 +48,9 @@
         }
     }
 }
-
+.tmp-elements-area-two .section-inner .left-content-area ul li img {
+    filter: brightness(0) saturate(100%) invert(61%) sepia(59%) saturate(388%) hue-rotate(39deg) brightness(90%) contrast(92%);
+}
 .invers-feature-6{
     border-radius: 5px;
     background: #FFF;

@@ -1,0 +1,26 @@
+
+
+.title-power-area{
+    text-align: center;
+    margin-top: -70px;
+    .title-bg{
+        -webkit-background-clip: text !important;
+        -webkit-text-fill-color: transparent;
+        background: linear-gradient(to bottom, #e7e7e7 38%, #ffffff 105%);
+        font-size: 220px;
+        line-height: 1;
+        margin-bottom: -80px;
+    }   
+}
+
+.single-power-feature{
+    padding: 30px;
+    border-radius: 6px;
+    box-shadow: var(--shadow-1);
+    .thumbnail{
+        margin-bottom: 20px;
+    }
+    .title{
+        margin-bottom: 12px;
+    }
+}
