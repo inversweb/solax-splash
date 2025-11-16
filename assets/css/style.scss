@@ -67,7 +67,7 @@ nav ul {
     --color-body: #555555;
     --color-heading-1: #1F242E;
     --color-white: #fff;
-    --color-border: #DDD8F9;
+    --color-border: #e4e4e4;
     --border-width: 1px;
     --radius: 10px;
     --shadow-1: 0px 6px 34px rgba(215, 216, 222, 0.41);
@@ -7732,7 +7732,7 @@ li.has-dropdown:hover .submenu {
         z-index: 1;
         padding: 100px 90px;
         border-radius: 6px;
-        background: rgb(255 255 255);
+        background: linear-gradient(90deg, #F5FFE3 0%, rgba(255, 255, 255, 0) 100%);
         box-shadow: var(--shadow-1);
         .cta-content{
             .title{
@@ -7747,7 +7747,7 @@ li.has-dropdown:hover .submenu {
             bottom: 0;
             left: 40px;
             img{
-                max-width: 380px;
+                max-width: 405px;
             }
         }
     } 
