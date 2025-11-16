@@ -34,6 +34,8 @@
             this._html = $('html')
         },
         methods: function (e) {
+            tmpJs.dateUpdate();
+            tmpJs.swiperjsactive();
             tmpJs.odoMeter();
             tmpJs.stickyTopelements();
             tmpJs.jarallax();
@@ -47,7 +49,33 @@
             tmpJs.salActive();
 
         },
+        dateUpdate: function () {
 
+          let fullYear = document.querySelectorAll("#year");
+
+          if (fullYear.length) {
+            window.addEventListener("DOMContentLoaded", function () {
+              document.getElementById("year").textContent = new Date().getFullYear();
+            });
+          }
+
+        },
+        swiperjsactive: function(){
+          var swiper = new Swiper(".marqueeSwiper", {
+            loop: true,
+            freemode: true,
+            slidesPerView: 'auto',
+            slidesPerView: 1,
+            spaceBetween: 30,
+            centeredSlides: true,
+            allowTouchMove: false,
+            speed: 14000,
+            autoplay: {
+              delay: 1,
+              disableOnInteraction: true,
+            },
+          });
+        },
 
         odoMeter: function () {
           $(document).ready(function () {

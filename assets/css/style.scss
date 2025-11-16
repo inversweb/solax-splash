@@ -6041,11 +6041,7 @@ li.has-dropdown:hover .submenu {
     border: 1px solid #c8c8c8
 }
 
-.tmp-btn.btn-border:hover {
-    background: #615EFC;
-    border: 1px solid var(--color-primary);
-    color: #fff
-}
+
 
 .tmp-banner-area-1 {
     text-align: center;
@@ -7767,9 +7763,27 @@ li.has-dropdown:hover .submenu {
     z-index: 1;
     overflow: hidden;
     text-align: center;
-    padding: 30px 50px;
+    padding: 0;
     background: rgb(255 255 255);
     box-shadow: var(--shadow-1);
+    
+    .content{
+        padding: 0 30px 30px 30px;
+        .btn-border{
+            border: 1px dashed var(--color-primary);
+            height: 50px;
+            &:hover{
+                border: 1px solid transparent;
+            }
+        }
+    }
+    .thumbnail{
+        margin-bottom: 30px;
+    }
+    .tmp-btn{
+        margin: auto;
+        margin-bottom: 30px;
+    }
     .icon{
         height: 250px;
         margin-bottom: 80px;
@@ -7887,6 +7901,7 @@ li.has-dropdown:hover .submenu {
         padding: 60px 30px;
     }
 }
+
 @media(max-width:576px){
     .banner-wrapper-one-inner .title{
         font-size: 42px;
